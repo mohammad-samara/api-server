@@ -1,0 +1,25 @@
+{
+  "categories": [
+    {
+      "_id": "1",
+      "name": "blender",
+      "display_name": "blender",
+      "description": "to blend things like fruits"
+    },
+    {
+      "name": "fridges-medium",
+      "display_name": "medium fridge",
+      "description": "to store food",
+      "_id": "5v0QqRF"
+    }
+  ],
+  "products": [
+    {
+      "_id": "1",
+      "category": "blender",
+      "name": "panasonic blender-Model-A01",
+      "display_name": "panasonic blender",
+      "description": "the latest blender from panasonic"
+    }
+  ]
+}
