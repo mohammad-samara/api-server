@@ -41,7 +41,7 @@ const PORT = port || process.env.PORT || 3000;
 #### How to initialize/run your application
 
 * `npm init -y`
-* `npm index.js`
+* `node index.js`
 * use git,postman or sawgger to use crud methods.
 
 #### Tests

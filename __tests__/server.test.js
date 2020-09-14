@@ -24,9 +24,9 @@ describe('Server', () => {
       expect(results.status).toBe(200);
     });
   });
-  it('5-should respond with 201 on put /products/:id', () => {
+  it('5-should respond with 400 on put since not meeting requirements /products/:id', () => {
     return mockRequest.put('/products/:id').then((results) => {
-      expect(results.status).toBe(201);
+      expect(results.status).toBe(400);
     });
   });
   it('6-should respond with 200 on delete /products/:id', () => {
@@ -49,9 +49,9 @@ describe('Server', () => {
       expect(results.status).toBe(200);
     });
   });
-  it('10-should respond with 201 on put /categories/:id', () => {
+  it('10-should respond with 400 on put since not meeting put requirements /categories/:id', () => {
     return mockRequest.put('/categories/:id').then((results) => {
-      expect(results.status).toBe(201);
+      expect(results.status).toBe(400);
     });
   });
   it('11-should respond with 200 on delete /categories/:id', () => {
