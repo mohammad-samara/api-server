@@ -1,62 +1,136 @@
-'use strict';
-const { server } = require('../lib/server.js');
-const supertest = require('supertest');
-const mockRequest = supertest(server);
 
-describe('Server', () => {
-  it('1-should respond with 404 on an invalid route', () => {
-    return mockRequest.get('/marah').then((results) => {
-      expect(results.status).toBe(404);
+'use strict';
+
+const supergoose = require('@code-fellows/supergoose');
+const { server } = require('../lib/server');
+const mockRequest = supergoose(server);
+
+describe('Server API', ()=> {
+    
+  it('should respond properly /products', ()=> {
+    return mockRequest
+      .get('/products')
+      .then(results => {
+        expect(results.status).toBe(200);
+      });
+  });
+
+  it('can get() a product item', async ()=> {
+    const productObj = {category : 'electronics',name: 'phone', display_name : 'phone', description: 'to call people'};
+    const data = await mockRequest.post('/products').send(productObj);
+    //console.log('data.body : ',data.body);
+    const record = data.body;
+    const producttemResponse = await mockRequest.get(`/products/${record._id}`);
+    const productItem = producttemResponse.body[0];
+    Object.keys(productObj).forEach(key=> {
+      expect(productItem[key]).toEqual(productObj[key]);
+    });
+
+  });
+
+  it('can post() a product item', async ()=> {
+    const productObj = {category : 'electronics',name: 'televesion', display_name : 'tv', description: 'to watch movies'};
+    const data = await mockRequest.post('/products').send(productObj);
+    //console.log('data.body : ',data.body);
+    const record = data.body;
+    Object.keys(productObj).forEach(key=> {
+      expect(record[key]).toEqual(productObj[key]);
     });
   });
-  it('2-should respond with 201 on post /products', () => {
-    return mockRequest.post('/products').then((results) => {
-      expect(results.status).toBe(201);
+
+  it('TEST post() server failure ', ()=> {
+    let obj = {name: 'test-post-1'};
+    return mockRequest
+      .post('/products')
+      .send(obj)
+      .then(data => {
+        // compare what the post has returned with hwat we submitted
+        // console.log(data.body);
+        expect(data.status).toBe(500);
+      });
+  });
+
+  it('TEST post() not found ', ()=> {
+    let obj = {  'category': 'done',
+      'name': 'abdallah',
+      'display_name': '****',
+      'description': 'Best one in the neighbourhood'};
+    return mockRequest
+      .post('/products/notFound')
+      .send(obj)
+      .then(data => {
+        // compare what the post has returned with hwat we submitted
+        // console.log(data.body);
+        expect(data.status).toBe(404);
+      });
+  });
+
+
+  
+
+
+
+
+
+  it('should respond properly /categories', ()=> {
+    return mockRequest
+      .get('/categories')
+      .then(results => {
+        expect(results.status).toBe(200);
+      });
+  });
+
+  it('can get() a categories item', async ()=> {
+    const categorytObj = {name: 'electronics', display_name : 'smart electrinics', description: 'using electricity to work'};
+    const data = await mockRequest.post('/categories').send(categorytObj);
+    //console.log('data.body : ',data.body);
+    const record = data.body;
+    const categoryItemResponse = await mockRequest.get(`/categories/${record._id}`);
+    const categoryItem = categoryItemResponse.body[0];
+    Object.keys(categorytObj).forEach(key=> {
+      expect(categoryItem[key]).toEqual(categorytObj[key]);
+    });
+
+  });
+
+  it('can post() a category item', async ()=> {
+    const categorytObj = {name: 'electronics', display_name : 'smart electrinics', description: 'using electricity to work'};
+    const data = await mockRequest.post('/categories').send(categorytObj);
+    //console.log('data.body : ',data.body);
+    const record = data.body;
+    Object.keys(categorytObj).forEach(key=> {
+      expect(record[key]).toEqual(categorytObj[key]);
     });
   });
-  it('3-should respond with 200 on get /products', () => {
-    return mockRequest.get('/products').then((results) => {
-      expect(results.status).toBe(200);
-    });
+
+  it('TEST post() server failure ', ()=> {
+    let obj = {name: 'test-post-1'};
+    return mockRequest
+      .post('/categories')
+      .send(obj)
+      .then(data => {
+        // compare what the post has returned with hwat we submitted
+        // console.log(data.body);
+        expect(data.status).toBe(500);
+      });
   });
-  it('4-should respond with 200 on get /products/:id', () => {
-    return mockRequest.get('/products/:id').then((results) => {
-      expect(results.status).toBe(200);
-    });
-  });
-  it('5-should respond with 400 on put since not meeting requirements /products/:id', () => {
-    return mockRequest.put('/products/:id').then((results) => {
-      expect(results.status).toBe(400);
-    });
-  });
-  it('6-should respond with 200 on delete /products/:id', () => {
-    return mockRequest.delete('/products/:id').then((results) => {
-      expect(results.status).toBe(200);
-    });
-  });
-  it('7-should respond with 201 on post /categories', () => {
-    return mockRequest.post('/categories').then((results) => {
-      expect(results.status).toBe(201);
-    });
-  });
-  it('8-should respond with 200 on get /categories', () => {
-    return mockRequest.get('/categories').then((results) => {
-      expect(results.status).toBe(200);
-    });
-  });
-  it('9-should respond with 200 on get /categories/:id', () => {
-    return mockRequest.get('/categories/:id').then((results) => {
-      expect(results.status).toBe(200);
-    });
-  });
-  it('10-should respond with 400 on put since not meeting put requirements /categories/:id', () => {
-    return mockRequest.put('/categories/:id').then((results) => {
-      expect(results.status).toBe(400);
-    });
-  });
-  it('11-should respond with 200 on delete /categories/:id', () => {
-    return mockRequest.delete('/categories/:id').then((results) => {
-      expect(results.status).toBe(200);
-    });
-  });
+
+  it('TEST post() not found ', ()=> {
+    let obj = {  'category': 'accessories',
+      'name': 'hanger',
+      'display_name': 'hanger',
+      'description': 'to hang things'};
+    return mockRequest
+      .post('/categories/best/zzz')
+      .send(obj)
+      .then(data => {
+        // compare what the post has returned with hwat we submitted
+        // console.log(data.body);
+        expect(data.status).toBe(404);
+      });
+  });  
+
+        
+
+
 });

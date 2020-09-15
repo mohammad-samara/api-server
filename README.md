@@ -1,15 +1,15 @@
 
-# LAB - 07
+# LAB - 08
 
 <!-- ## Project: Project Name Here -->
-## Express
+## Express Routing & Connected API
 
 ### Author: Mohammad Samara
 
 ### Links and Resources
 
-* [submission PR](https://github.com/mohammad-samara/api-server/pull/2)
-* [swagger documentation](https://app.swaggerhub.com/apis/mohammad-samara/json-server/0.1)
+* [submission PR](https://github.com/mohammad-samara/api-server/pull/3)
+* [swagger documentation](https://app.swaggerhub.com/apis/mohammad-samara/default-title/0.3)
 
 ### Modules
 

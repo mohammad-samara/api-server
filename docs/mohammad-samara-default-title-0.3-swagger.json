@@ -2,11 +2,11 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "defaultDescription",
-    "version" : "0.2",
+    "version" : "0.3",
     "title" : "defaultTitle"
   },
   "paths" : {
-    "/categories/7" : {
+    "/products" : {
       "get" : {
         "produces" : [ "application/json" ],
         "parameters" : [ ],
@@ -14,42 +14,17 @@
           "200" : {
             "description" : "Definition generated from Swagger Inspector",
             "schema" : {
-              "$ref" : "#/definitions/Model6"
+              "$ref" : "#/definitions/Model7"
             }
           }
         }
       }
     },
-    "/categories/2" : {
+    "/products/5f60b321d399471af46933a3" : {
       "patch" : {
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ ],
-        "responses" : {
-          "200" : {
-            "description" : "Definition generated from Swagger Inspector",
-            "schema" : {
-              "$ref" : "#/definitions/Model8"
-            }
-          }
-        }
-      }
-    },
-    "/categories/1" : {
-      "put" : {
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Model5"
-          },
-          "x-examples" : {
-            "application/json" : "{\n            \"name\": \"super-blender\",\n            \"display_name\": \"ultra-blender\",\n            \"description\": \"to blend things like rocks\"\n}\n"
-          }
-        } ],
         "responses" : {
           "200" : {
             "description" : "Definition generated from Swagger Inspector",
@@ -60,42 +35,7 @@
         }
       }
     },
-    "/products/1" : {
-      "get" : {
-        "produces" : [ "application/json" ],
-        "parameters" : [ ],
-        "responses" : {
-          "200" : {
-            "description" : "Definition generated from Swagger Inspector",
-            "schema" : {
-              "$ref" : "#/definitions/Model10"
-            }
-          }
-        }
-      },
-      "put" : {
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Model0"
-          },
-          "x-examples" : {
-            "application/json" : "{\n    \"category\": \"fridges-medium\",\n    \"name\": \"total fridge-Model-z09\",\n    \"display_name\": \"total fridge\",\n    \"description\": \"the most economic fridge from total\"\n}\n"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Definition generated from Swagger Inspector",
-            "schema" : {
-              "$ref" : "#/definitions/Model13"
-            }
-          }
-        }
-      },
+    "/categories/5f60b51e0531881b9e247961" : {
       "patch" : {
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -104,13 +44,107 @@
           "200" : {
             "description" : "Definition generated from Swagger Inspector",
             "schema" : {
-              "$ref" : "#/definitions/Model11"
+              "$ref" : "#/definitions/Model14"
             }
           }
         }
       }
     },
-    "/{param0}/{param1}" : {
+    "/{param0}" : {
+      "post" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Model2"
+          },
+          "x-examples" : {
+            "application/json" : "{\r\n      \"category\": \"electronics\",\r\n      \"name\": \"tv remote controll\",\r\n      \"display_name\": \"remote controll\",\r\n      \"description\": \"to controll tv\"\r\n    }"
+          }
+        }, {
+          "name" : "param0",
+          "in" : "path",
+          "description" : "Example values form path are: 'products' and 'categories'",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Definition generated from Swagger Inspector",
+            "schema" : {
+              "$ref" : "#/definitions/Model6"
+            }
+          }
+        }
+      }
+    },
+    "/{param1}/{param2}" : {
+      "get" : {
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "param1",
+          "in" : "path",
+          "description" : "Example values form path are: 'products' and 'categories'",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "param2",
+          "in" : "path",
+          "description" : "Example values form path are: '5f60b321d399471af46933a3' and '5f60b51e0531881b9e247961'",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Definition generated from Swagger Inspector",
+            "schema" : {
+              "$ref" : "#/definitions/Model10"
+            }
+          }
+        }
+      }
+    },
+    "/{param3}/{param4}" : {
+      "put" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Model3"
+          },
+          "x-examples" : {
+            "application/json" : "{\r\n      \"category\": \"electronics\",\r\n      \"name\": \"universal remote controll\",\r\n      \"display_name\": \"multi-use remote controll\",\r\n      \"description\": \"to controll all electronics\"\r\n    }"
+          }
+        }, {
+          "name" : "param3",
+          "in" : "path",
+          "description" : "Example values form path are: 'products' and 'categories'",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "param4",
+          "in" : "path",
+          "description" : "Example values form path are: '5f60b321d399471af46933a3' and '5f60b51e0531881b9e247961'",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Definition generated from Swagger Inspector",
+            "schema" : {
+              "$ref" : "#/definitions/Model8"
+            }
+          }
+        }
+      }
+    },
+    "/{param5}/{param6}" : {
       "delete" : {
         "consumes" : [ "application/json" ],
         "produces" : [ "text/html" ],
@@ -122,18 +156,18 @@
             "$ref" : "#/definitions/Model4"
           },
           "x-examples" : {
-            "application/json" : "{\n            \"name\": \"super-blender\",\n            \"display_name\": \"ultra-blender\",\n            \"description\": \"to blend things like rocks\"\n}\n"
+            "application/json" : "{\r\n      \"description\": \"to controll all tv's\"\r\n    }"
           }
         }, {
-          "name" : "param0",
+          "name" : "param5",
           "in" : "path",
-          "description" : "Example values form path are: 'categories' and 'products'",
+          "description" : "Example values form path are: 'products' and 'categories'",
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "param1",
+          "name" : "param6",
           "in" : "path",
-          "description" : "Example values form path are: '7' and '1'",
+          "description" : "Example values form path are: '5f60b321d399471af46933a3' and '5f609ca79462361195be4be8'",
           "required" : true,
           "type" : "string"
         } ],
@@ -146,57 +180,10 @@
           }
         }
       }
-    },
-    "/{param2}" : {
-      "post" : {
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Model3"
-          },
-          "x-examples" : {
-            "application/json" : "{\n\"category\": \"fridges-medium\",\n\"name\": \"total fridge-Model-c01\",\n\"display_name\": \"total fridge\",\n\"description\": \"the latest fridge from total\"\n}\n"
-          }
-        }, {
-          "name" : "param2",
-          "in" : "path",
-          "description" : "Example values form path are: 'products' and 'categories'",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "Definition generated from Swagger Inspector",
-            "schema" : {
-              "$ref" : "#/definitions/Model7"
-            }
-          }
-        }
-      }
     }
   },
   "definitions" : {
-    "Model0" : {
-      "properties" : {
-        "category" : {
-          "type" : "string"
-        },
-        "name" : {
-          "type" : "string"
-        },
-        "display_name" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Model1" : {
+    "Model2" : {
       "properties" : {
         "category" : {
           "type" : "string"
@@ -228,44 +215,18 @@
         }
       }
     },
-    "Model5" : {
+    "Model4" : {
       "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "display_name" : {
-          "type" : "string"
-        },
         "description" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Categories" : {
-      "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "display_name" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        },
-        "_id" : {
           "type" : "string"
         }
       }
     },
     "Model6" : {
       "properties" : {
-        "categories" : {
-          "$ref" : "#/definitions/Categories"
-        }
-      }
-    },
-    "Model7" : {
-      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
         "category" : {
           "type" : "string"
         },
@@ -278,13 +239,20 @@
         "description" : {
           "type" : "string"
         },
-        "_id" : {
-          "type" : "string"
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
         }
       }
     },
-    "Model8_Categories" : {
+    "Results" : {
       "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        },
         "name" : {
           "type" : "string"
         },
@@ -294,20 +262,34 @@
         "description" : {
           "type" : "string"
         },
-        "_id" : {
-          "type" : "string"
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Model7" : {
+      "properties" : {
+        "count" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "results" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Results"
+          }
         }
       }
     },
     "Model8" : {
       "properties" : {
-        "categories" : {
-          "$ref" : "#/definitions/Model8_Categories"
-        }
-      }
-    },
-    "Model9_Categories" : {
-      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        },
         "name" : {
           "type" : "string"
         },
@@ -315,21 +297,30 @@
           "type" : "string"
         },
         "description" : {
-          "type" : "string"
-        },
-        "_id" : {
           "type" : "string"
         }
       }
     },
     "Model9" : {
       "properties" : {
-        "categories" : {
-          "$ref" : "#/definitions/Model9_Categories"
+        "_id" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "display_name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
         }
       }
     },
-    "Products" : {
+    "Array" : {
       "properties" : {
         "_id" : {
           "type" : "string"
@@ -349,15 +340,14 @@
       }
     },
     "Model10" : {
-      "properties" : {
-        "products" : {
-          "$ref" : "#/definitions/Products"
-        }
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Array"
       }
     },
-    "Model11_Products" : {
+    "Model12_Array" : {
       "properties" : {
-        "category" : {
+        "_id" : {
           "type" : "string"
         },
         "name" : {
@@ -369,21 +359,15 @@
         "description" : {
           "type" : "string"
         },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Model14" : {
+      "properties" : {
         "_id" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Model11" : {
-      "properties" : {
-        "products" : {
-          "$ref" : "#/definitions/Model11_Products"
-        }
-      }
-    },
-    "Model13_Products" : {
-      "properties" : {
-        "category" : {
           "type" : "string"
         },
         "name" : {
@@ -395,15 +379,9 @@
         "description" : {
           "type" : "string"
         },
-        "_id" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Model13" : {
-      "properties" : {
-        "products" : {
-          "$ref" : "#/definitions/Model13_Products"
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
         }
       }
     }
