@@ -49,7 +49,7 @@ function updateProduct(req,res,next){
 
 function patchProduct(req,res,next){
   productsModel
-    .update(req.params._id , req.body)
+    .patch(req.params._id , req.body)
     .then((data) => {
       res.json(data);
     })
