@@ -1,3 +1,4 @@
+//no longer used// we use main-router.js instead
 'use strict';
 const express = require('express');
 const productsModel = require('../lib/models/products-collection.js');
