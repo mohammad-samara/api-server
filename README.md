@@ -1,19 +1,19 @@
 
-# LAB - 08
+# LAB - 09
 
 <!-- ## Project: Project Name Here -->
-## Express Routing & Connected API
+## API Server
 
 ### Author: Mohammad Samara
 
 ### Links and Resources
 
-* [submission PR](https://github.com/mohammad-samara/api-server/pull/3)
+* [submission PR](https://github.com/mohammad-samara/api-server/pull/4)
 * [swagger documentation](https://app.swaggerhub.com/apis/mohammad-samara/default-title/0.3)
 
 ### Modules
 
-**timestamp.js** , **logger.js** , **500.js**, **404.js**
+**timestamp.js** , **logger.js** , **500.js**, **404.js**, **params.js**
 
 #### Exported Values and Methods
 
@@ -31,6 +31,8 @@ This will console for not exist route.
 
 `500.js`
 This will console the server errors.
+`params.js`
+This will select the correct model for the requested route
 
 ### Setup
 
