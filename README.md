@@ -9,7 +9,7 @@
 ### Links and Resources
 
 * [submission PR](https://github.com/mohammad-samara/api-server/pull/4)
-* [swagger documentation](https://app.swaggerhub.com/apis/mohammad-samara/default-title/0.3)
+* [swagger documentation](https://app.swaggerhub.com/apis/mohammad-samara/server-api-lab09/0.4)
 
 ### Modules
 
